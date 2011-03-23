@@ -1,0 +1,113 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ 
+..\..\FrameXML\UI.xsd">
+
+ 
+  
+  <!-- ================================================
+       MAIN FRAME
+       =================================================-->
+  <Frame name="WebDKP_AwardFrame" toplevel="true" parent="UIParent" movable="true" hidden="true">
+    <!-- EVENT HANDLERS FOR THE MASTER FRAME -->
+    <Scripts>
+      <OnMouseDown>
+        this:StartMoving();
+      </OnMouseDown>
+      <OnMouseUp>
+        this:StopMovingOrSizing();
+      </OnMouseUp>
+    </Scripts>
+    <Size>
+      <AbsDimension x="425" y="125"/>
+    </Size>
+    <Anchors>
+      <Anchor point="LEFT"/>
+    </Anchors>
+    <Backdrop bgFile="Interface\TutorialFrame\TutorialFrameBackground" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+      <EdgeSize>
+        <AbsValue val="16"/>
+      </EdgeSize>
+      <TileSize>
+        <AbsValue val="16"/>
+      </TileSize>
+      <BackgroundInsets>
+        <AbsInset left="5" right="5" top="5" bottom="5"/>
+      </BackgroundInsets>
+    </Backdrop>
+
+    <!-- HEADER / ADDON TITLE-->
+    <Layers>
+      <Layer level="ARTWORK">
+        <FontString name="$parentTitle" inherits="GameFontNormal" text="Award ZeddZorandor thisisareallylongitemname for 10000 dkp?">
+          <Anchors>
+            <Anchor point="TOP">
+              <Offset>
+                <AbsDimension x="0" y="-14"/>
+              </Offset>
+            </Anchor>
+          </Anchors>
+        </FontString>
+      </Layer>
+    </Layers>
+    <!-- FRAMES (contains all gui elements -->
+    <Frames>
+      <EditBox name="$parentCost" inherits="WebDKPEditBoxTemplate">
+        <Size>
+          <AbsDimension x="70" y="32"></AbsDimension>
+        </Size>
+        <Anchors>
+          <Anchor point="TOP" relativeTo="$parentTitle" relativePoint="BOTTOM">
+            <Offset>
+              <AbsDimension x="0" y="-10" />
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnLoad>
+            getglobal(this:GetParent():GetName().."Cost"):SetAutoFocus( false );
+          </OnLoad>
+        </Scripts>
+      </EditBox> 
+      <Button name="$parentYes" inherits="OptionsButtonTemplate" text="Yes">
+        <Anchors>
+          <Anchor point="TOPRIGHT" relativePoint="BOTTOM" relativeTo="$parentCost">
+            <Offset>
+              <AbsDimension x="-5" y="-10"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Size>
+          <AbsDimension x="75" y="25"/>
+        </Size>
+        <Scripts>
+          <OnClick>
+            local cost = getglobal(this:GetParent():GetName().."Cost"):GetText();
+            if(cost == nil) then
+            cost = 0;
+            end
+            WebDKP_AutoAward(cost);
+            PlaySound("LOOTWINDOWCOINSOUND");
+            WebDKP_AwardFrame:Hide();
+          </OnClick>
+        </Scripts>
+      </Button>
+      <Button name="$parentNo" inherits="OptionsButtonTemplate" text="No">
+        <Anchors>
+          <Anchor point="TOPLEFT" relativePoint="BOTTOM" relativeTo="$parentCost">
+            <Offset>
+              <AbsDimension x="5" y="-10"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Size>
+          <AbsDimension x="75" y="25"/>
+        </Size>
+        <Scripts>
+          <OnClick>
+            PlaySound("igMainMenuClose");
+            WebDKP_AwardFrame:Hide();
+          </OnClick>
+        </Scripts>
+      </Button>
+    </Frames>
+  </Frame>
+</Ui>

@@ -1,0 +1,25 @@
+## Interface: 11200
+## Title: WebDKP
+## Notes: An addon that allows you to easily record DKP for guilds in game. 
+## Author: ZeddZorandor
+## Version: 2
+## X-Category: Guild Raid
+## SavedVariables: WebDKP_Options, WebDKP_Log, WebDKP_DkpTable, WebDKP_Tables, WebDKP_Loot, WebDKP_Alts, WebDKP_WebOptions
+WebDKP_Frame.xml
+WebDKP_Bid_Frame.xml
+WebDKP_Award_Frame.xml
+WebDKP_Help_Frame.xml
+WebDKP_Options_Frame.xml
+WebDKP_TimedAward_Frame.xml
+
+WebDKP.lua
+WhisperDKP.lua
+Utility.lua
+GroupFunctions.lua
+Announcemenets.lua
+Awards.lua
+AutoFill.lua
+Bidding.lua
+Help.lua
+Options.lua
+TimedAward.lua
