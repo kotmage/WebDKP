@@ -1,0 +1,41 @@
+[Config]
+Compilator.SaveAll=0
+Compilator.Capture=0
+Compilator.HideOutput=0
+Compilator.LogType=0
+DefaultCPIndex=0
+LogtoEnd=1
+DontOpen=0
+AbsolutePath=0
+FileFormat=0
+ProjectFilesOnly=0
+[Project tree]
+WebDKP
+	+Složka
+		Announcments.lua
+		AutoFill.lua
+		Awards.lua
+		Bidding.lua
+		GroupFunctions.lua
+		Help.lua
+		Options.lua
+		Readme.txt
+		TimedAward.lua
+		Utility.lua
+		WebDKP.lua
+		WebDKP.toc
+		WebDKP_Award_Frame.xml
+		WebDKP_Bid_Frame.xml
+		WebDKP_Frame.xml
+		WebDKP_Help_Frame.xml
+		WebDKP_Options_Frame.xml
+		WebDKP_TimedAward_Frame.xml
+		WhisperDKP.lua
+[Open project files]
+0=WebDKP.lua
+[Selected Project Files]
+Main=
+Selected=WebDKP.lua
+[WebDKP.lua]
+TopLine=1
+Caret=1,1
