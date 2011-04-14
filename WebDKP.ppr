@@ -33,9 +33,24 @@ WebDKP
 		WhisperDKP.lua
 [Open project files]
 0=WebDKP.lua
+1=AutoFill.lua
+2=Bidding.lua
+3=TimedAward.lua
 [Selected Project Files]
 Main=
 Selected=WebDKP.lua
 [WebDKP.lua]
+TopLine=183
+Caret=104,187
+Mark1=12,206
+BookMark1=7,206
+[AutoFill.lua]
+TopLine=38
+Caret=1,1
+[Bidding.lua]
 TopLine=1
 Caret=1,1
+[TimedAward.lua]
+TopLine=130
+Caret=3,150
+BookMark1=3,150

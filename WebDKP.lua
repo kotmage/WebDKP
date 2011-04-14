@@ -11,7 +11,7 @@
 -- HOW THIS ADDON IS ORGANIZED:
 -- The addon is grouped into a series of files which hold code for certain
 -- functions. 
--- 
+--                                                                             
 -- WebDKP			Code to handle start / shutdown / registering events
 --					and GUI event handlers. This is the main entry point
 --					of the addon and directs events to the functionality
@@ -203,9 +203,18 @@ function WebDKP_OnEnable()
 	-- place a hook on the chat frame so we can filter out our whispers
 	WebDKP_Register_WhisperHook();
 	
-	-- place a hook on item shift+clicks so we can get item details -- MOD: 2.0+
+	-- place a hook on item shift+clicks so we can get item details
+   -- MOD: 2.0+
 	-- hooksecurefunc("SetItemRef",WebDKP_ItemChatClick);
 	-- hooksecurefunc("HandleModifiedItemClick",  WebDKP_HandleModifiedItemClick);
+	-- repair:
+	WebDKP_Backup_ChatFrame_OnHyperlinkShow=ChatFrame_OnHyperlinkShow
+   function ChatFrame_OnHyperlinkShow(frame, link, text, button) WebDKP_Backup_ChatFrame_OnHyperlinkShow(frame, link, text, button); WebDKP_ItemChatClick(link, text, button); end
+   -- DirectHook, nedoporuèeno   
+   -- SetItemRefObs=SetItemRef
+   -- function SetItemRef(link, text, button) SetItemRefObs(link, text, button); WebDKP_ItemChatClick(link, text, button); end
+
+	
 end
 
 -- ================================
